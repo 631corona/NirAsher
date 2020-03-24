@@ -26,7 +26,6 @@ function alertUptimeTimoutCallback() {
     alertModal.onClickOK = () => {
         document.body.removeChild(alertModal);
         setAlertUptimeTimeout();
-        //$("alert-modal").remove();
     };
     document.body.appendChild(alertModal);
 }
