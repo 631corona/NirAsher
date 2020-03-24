@@ -1,4 +1,4 @@
-import { updateData } from './requests-emitters/requests-emitters.js';
+import { updateAPIsData } from './requests-emitters/requests-emitters.js';
 
 const header = "header";
 loadHTML(header, header, `${header}.html`);
@@ -31,6 +31,7 @@ function loadHTML(containerId, fileDirectory, filename) {
     });
 }
 
+// Activating popup after X time
 function setAlertUptimeTimeout() {
     setTimeout(alertUptimeTimoutCallback, 30000);
 }
@@ -47,6 +48,7 @@ function alertUptimeTimoutCallback() {
 
 setAlertUptimeTimeout();
 
+// updates APIs data
 setInterval(() => {
-    updateData();
+    updateAPIsData();
 }, 193000);
