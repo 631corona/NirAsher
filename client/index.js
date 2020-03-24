@@ -16,8 +16,14 @@ loadHTML(vaccineStatusPerLab, vaccineStatusPerLab, `${vaccineStatusPerLab}.html`
 const vaccinePrecentagePerLab = "vaccine-percentage-per-lab";
 loadHTML(vaccinePrecentagePerLab, vaccinePrecentagePerLab, `${vaccinePrecentagePerLab}.html`);
 
+const counters = "counters";
+loadHTML(counters, counters, `${counters}.html`);
+
+const celebration = "celebration";
+loadHTML(celebration, celebration, `${celebration}.html`);
+
 function setAlertUptimeTimeout() {
-    setTimeout(alertUptimeTimoutCallback, 3000);
+    setTimeout(alertUptimeTimoutCallback, 10000);
 }
 
 function alertUptimeTimoutCallback() {

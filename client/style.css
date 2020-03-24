@@ -1,7 +1,6 @@
 body {
     font-size: 15px;
-}
-
-p {
-    text-align: right;
+    margin: auto;
+    direction: rtl;
+    font-family: "Segoe UI";
 }
