@@ -1,8 +1,4 @@
-function loadHTML(containerId, fileDirectory, filename) {
-    $(function(){
-        $(`#${containerId}`).load(`./contents/${fileDirectory}/${filename}`);
-    });
-}
+import { updateData } from './requests-emitters/requests-emitters.js';
 
 const header = "header";
 loadHTML(header, header, `${header}.html`);
@@ -16,14 +12,27 @@ loadHTML(vaccineStatusPerLab, vaccineStatusPerLab, `${vaccineStatusPerLab}.html`
 const vaccinePrecentagePerLab = "vaccine-percentage-per-lab";
 loadHTML(vaccinePrecentagePerLab, vaccinePrecentagePerLab, `${vaccinePrecentagePerLab}.html`);
 
-const counters = "counters";
-loadHTML(counters, counters, `${counters}.html`);
+const soldiersAtQuarantineCounter = "soldiers-at-quarantine-counter";
+loadHTML(soldiersAtQuarantineCounter, soldiersAtQuarantineCounter, `${soldiersAtQuarantineCounter}.html`);
+
+const soldiersAtHomeCounter = "soldiers-at-home-counter";
+loadHTML(soldiersAtHomeCounter, soldiersAtHomeCounter, `${soldiersAtHomeCounter}.html`);
 
 const celebration = "celebration";
 loadHTML(celebration, celebration, `${celebration}.html`);
 
+const distanceBetweenQuarantinedSoldiers = "distance-between-quarantined-soldiers";
+loadHTML(distanceBetweenQuarantinedSoldiers, distanceBetweenQuarantinedSoldiers, `${distanceBetweenQuarantinedSoldiers}.html`);
+
+
+function loadHTML(containerId, fileDirectory, filename) {
+    $(function(){
+        $(`#${containerId}`).load(`./contents/${fileDirectory}/${filename}`);
+    });
+}
+
 function setAlertUptimeTimeout() {
-    setTimeout(alertUptimeTimoutCallback, 10000);
+    setTimeout(alertUptimeTimoutCallback, 30000);
 }
 
 function alertUptimeTimoutCallback() {
@@ -37,3 +46,7 @@ function alertUptimeTimoutCallback() {
 }
 
 setAlertUptimeTimeout();
+
+setInterval(() => {
+    updateData();
+}, 193000);

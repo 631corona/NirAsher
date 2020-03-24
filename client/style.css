@@ -4,3 +4,7 @@ body {
     direction: rtl;
     font-family: "Segoe UI";
 }
+
+canvas .graph {
+    max-height: 400px;
+}
