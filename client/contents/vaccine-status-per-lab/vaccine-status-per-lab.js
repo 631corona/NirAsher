@@ -6,13 +6,17 @@ const devStatus = {
     SUCCESS: "success"
 };
 
+function sortLabsByName(labs) {
+    return labs.sort((a, b) => a.name.toString().localeCompare(b.name.toString()));
+}
+
 function mapLabsNames(labs) {
+    labs = sortLabsByName(labs);
     return labs.map(lab => lab.name);
 }
 
-let chart = null;
-
 function mapStatuses(labs) {
+    labs = sortLabsByName(labs);
     return labs.map((lab) => {
         switch (lab.status.toLowerCase()){
             case devStatus.FAILED.toLowerCase():
@@ -24,6 +28,8 @@ function mapStatuses(labs) {
         }
     });
 }
+
+let chart = null;
 
 function createChart(labs){
     const labsNames = mapLabsNames(labs);
@@ -37,20 +43,32 @@ function createChart(labs){
                 label: 'Vaccine Development Status',
                 data: labsStatuses,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 102, 102, 0.35)',
+                    'rgba(255, 178, 102, 0.35)',
+                    'rgba(255, 255, 102, 0.35)',
+                    'rgba(178, 255, 102, 0.35)',
+                    'rgba(102, 255, 102, 0.35)',
+                    'rgba(102, 255, 178, 0.35)',
+                    'rgba(102, 255, 255, 0.35)',
+                    'rgba(102, 178, 255, 0.35)',
+                    'rgba(102, 102, 255, 0.35)',
+                    'rgba(178, 102, 255, 0.35)',
+                    'rgba(255, 102, 255, 0.35)',
+                    'rgba(255, 102, 178, 0.35)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 102, 102, 1)',
+                    'rgba(255, 178, 102, 1)',
+                    'rgba(255, 255, 102, 1)',
+                    'rgba(178, 255, 102, 1)',
+                    'rgba(102, 255, 102, 1)',
+                    'rgba(102, 255, 178, 1)',
+                    'rgba(102, 255, 255, 1)',
+                    'rgba(102, 178, 255, 1)',
+                    'rgba(102, 102, 255, 1)',
+                    'rgba(178, 102, 255, 1)',
+                    'rgba(255, 102, 255, 1)',
+                    'rgba(255, 102, 178, 1)',
                 ],
                 borderWidth: 1
             }]

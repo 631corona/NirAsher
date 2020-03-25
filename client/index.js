@@ -57,5 +57,5 @@ setInterval(() => {
     $(`#${vaccinePrecentagePerLab}`).trigger(newDataArrivedEvent);
     $(`#${soldiersAtQuarantineCounter}`).trigger(newDataArrivedEvent);
     $(`#${soldiersAtHomeCounter}`).trigger(newDataArrivedEvent);
-}, 193000);
-// }, 10000);
+// }, 193000);
+}, 10000);
