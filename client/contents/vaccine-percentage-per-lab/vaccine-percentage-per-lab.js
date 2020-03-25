@@ -1,13 +1,23 @@
 import { labsResponse } from '../../requests-emitters/requests-emitters.js';
 
-createChart(labsResponse.labs);
+function mapLabsNames(labs) {
+    return labs.map(lab => lab.name);
+}
+
+function mapLabsPercentile(labs) {
+    return labs.map(lab => lab.progress_percentile);
+}
+
+let chart = null;
 
 function createChart(labs){
-    const labsNames = labs.map(lab => lab.name);
-    const labsPercentile = labs.map(lab => lab.progress_percentile);
+    // const labsNames = labs.map(lab => lab.name);
+    // const labsPercentile = labs.map(lab => lab.progress_percentile);
+    const labsNames = mapLabsNames(labs);
+    const labsPercentile = mapLabsPercentile(labs);
     console.log(labsNames);
     let ctx = document.getElementById('vaccine-percentage-per-lab-chart').getContext('2d');
-    new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labsNames,
@@ -44,3 +54,11 @@ function createChart(labs){
         }
     });
 }
+
+function updateData(labs) {
+    chart.data.datasets[0].data = mapLabsPercentile(labs);
+    chart.update(0)
+}
+
+createChart(labsResponse.labs);
+$("#vaccine-percentage-per-lab").on("newDataArrived", () => { updateData(labsResponse.labs) });

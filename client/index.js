@@ -1,5 +1,7 @@
 import { updateAPIsData } from './requests-emitters/requests-emitters.js';
 
+const newDataArrivedEvent = 'newDataArrived';
+
 const header = "header";
 loadHTML(header, header, `${header}.html`);
 
@@ -18,11 +20,11 @@ loadHTML(soldiersAtQuarantineCounter, soldiersAtQuarantineCounter, `${soldiersAt
 const soldiersAtHomeCounter = "soldiers-at-home-counter";
 loadHTML(soldiersAtHomeCounter, soldiersAtHomeCounter, `${soldiersAtHomeCounter}.html`);
 
-const celebration = "celebration";
-loadHTML(celebration, celebration, `${celebration}.html`);
-
 const distanceBetweenQuarantinedSoldiers = "distance-between-quarantined-soldiers";
 loadHTML(distanceBetweenQuarantinedSoldiers, distanceBetweenQuarantinedSoldiers, `${distanceBetweenQuarantinedSoldiers}.html`);
+
+const celebration = "celebration";
+loadHTML(celebration, celebration, `${celebration}.html`);
 
 
 function loadHTML(containerId, fileDirectory, filename) {
@@ -51,4 +53,9 @@ setAlertUptimeTimeout();
 // updates APIs data
 setInterval(() => {
     updateAPIsData();
+    $(`#${vaccineStatusPerLab}`).trigger(newDataArrivedEvent);
+    $(`#${vaccinePrecentagePerLab}`).trigger(newDataArrivedEvent);
+    $(`#${soldiersAtQuarantineCounter}`).trigger(newDataArrivedEvent);
+    $(`#${soldiersAtHomeCounter}`).trigger(newDataArrivedEvent);
 }, 193000);
+// }, 10000);

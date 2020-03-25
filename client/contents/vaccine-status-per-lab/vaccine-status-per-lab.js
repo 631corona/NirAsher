@@ -6,11 +6,14 @@ const devStatus = {
     SUCCESS: "success"
 };
 
-createChart(labsResponse.labs);
+function mapLabsNames(labs) {
+    return labs.map(lab => lab.name);
+}
 
-function createChart(labs){
-    const labsNames = labs.map(lab => lab.name);
-    const labsStatuses = labs.map((lab) => {
+let chart = null;
+
+function mapStatuses(labs) {
+    return labs.map((lab) => {
         switch (lab.status.toLowerCase()){
             case devStatus.FAILED.toLowerCase():
                 return 0;
@@ -20,9 +23,13 @@ function createChart(labs){
                 return 2;
         }
     });
-    console.log(labsNames);
+}
+
+function createChart(labs){
+    const labsNames = mapLabsNames(labs);
+    const labsStatuses = mapStatuses(labs);
     let ctx = document.getElementById('vaccine-status-per-lab-chart').getContext('2d');
-    new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labsNames,
@@ -60,3 +67,11 @@ function createChart(labs){
         }
     });
 }
+
+function updateData(labs) {
+    chart.data.datasets[0].data = mapStatuses(labs);
+    chart.update(0)
+}
+
+createChart(labsResponse.labs);
+$("#vaccine-status-per-lab").on("newDataArrived", () => { updateData(labsResponse.labs) });
