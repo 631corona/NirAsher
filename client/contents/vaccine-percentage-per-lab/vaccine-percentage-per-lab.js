@@ -66,6 +66,9 @@ function createChart(labs){
                         beginAtZero: true,
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
