@@ -4,6 +4,11 @@
 Requierments:
 
 	Node.js
+	
+### Running the mock
+Run the client by entering the mock directory and running the following command in the terminal:
+
+```node app.js```
 
 ### Running the client
 First, run ```npm install http-server -g``` to install ```http-server``` module.
