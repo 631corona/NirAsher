@@ -81,6 +81,9 @@ function createChart(labs){
                         stepSize: 1
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
