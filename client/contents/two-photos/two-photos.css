@@ -1,0 +1,13 @@
+.image-container {
+    display: inline-block;
+}
+
+.image-container p {
+    margin-top: auto;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+    max-height: 400px;
+}

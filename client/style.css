@@ -1,0 +1,78 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 15px;
+    margin: auto;
+    direction: rtl;
+    font-family: "Segoe UI";
+}
+
+.content {
+    padding-top: 56px;
+}
+
+
+
+/*.section {*/
+/*    overflow: hidden;*/
+/*    position: relative;*/
+/*    min-height: 600px;*/
+/*    display: flex;*/
+/*}*/
+
+.section-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    min-height: 700px;
+}
+
+.section-content canvas {
+    max-height: 500px;
+    max-width: 1000px;
+}
+
+.section-content.graph {
+    flex-direction: column;
+}
+
+.section-footer {
+    text-align: center;
+}
+/*'rgba(255, 99, 132, 0.2)',*/
+/*'rgba(54, 162, 235, 0.2)',*/
+/*'rgba(255, 206, 86, 0.2)',*/
+/*'rgba(75, 192, 192, 0.2)',*/
+/*'rgba(153, 102, 255, 0.2)',*/
+/*'rgba(255, 159, 64, 0.2)'*/
+#two-photos {
+    background-color: rgba(255, 99, 132, 0.2);
+}
+
+#vaccine-status-per-lab {
+    background-color: white;
+}
+
+#vaccine-percentage-per-lab {
+    background-color: rgba(255, 206, 86, 0.2);
+}
+
+#soldiers-at-home-counter {
+    background-color: rgba(75, 192, 192, 0.2);
+}
+
+#soldiers-at-quarantine-counter {
+    background-color: rgba(255, 159, 64, 0.2);
+}
+
+#distance-between-quarantined-soldiers {
+    background-color: rgba(153, 102, 255, 0.2);
+}
+
+#celebration {
+    background-color: rgba(54, 162, 235, 0.2);
+}
