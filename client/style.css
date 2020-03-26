@@ -9,19 +9,6 @@ body {
     font-family: "Segoe UI";
 }
 
-.content {
-    padding-top: 56px;
-}
-
-
-
-/*.section {*/
-/*    overflow: hidden;*/
-/*    position: relative;*/
-/*    min-height: 600px;*/
-/*    display: flex;*/
-/*}*/
-
 .section-content {
     display: flex;
     justify-content: space-evenly;
